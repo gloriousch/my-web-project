@@ -1,0 +1,129 @@
+/*公用的样式*/
+                                         /* <input type="submit"value="登陆豆瓣">   submit 提交  注意格式*
+                                         多熟悉ul li/
+                                          */
+/*css reset 开始*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/*css reset 结束*/
+body {
+    background: white;
+    font-size: 12px;/*字体大小*//*????不好使*/
+}
+input{
+    outline:none;/*!!!!!!!!!去除输入框轮廓*/
+}
+.wrap {
+    width: 950px;
+    /*  background: blue;*/
+    margin: 0 auto;
+    position: relative;
+
+}
+
+/*nav 开始*/
+#nav {
+    height: 84px;
+    /*line-height:84px;*/
+    background: white;
+}
+
+#logo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -17px;
+
+}
+
+#search-box {
+    border: 1px solid black;
+    height: 30px;
+    position: absolute;
+    left: 180px;
+    top: 50%;
+    margin-top: -15px;
+}
+
+#ipt-search {
+    width: 240px;
+    height: 20px;
+    font-size: 13px;
+    padding: 5px;
+    border: 0;
+    float: left;
+}
+
+#btn-search {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background: url(../img/bn_srh_1.png) no-repeat center center;
+    float: left;
+}
+#nav-menu{
+    position: absolute;
+    right:0;
+    top:50%;
+    margin-top: -10px;
+}
+#nav-menu li{
+    float: left;
+    margin-left: 17px;
+}
+#nav-menu a{
+    display: block;
+    width:40px;
+    height:20px;
+    background: url(../img/anony_nav_logo.png);
+    text-indent:-9999px;
+}
+#nav-menu .read{
+    background-position: 0 0;
+
+}
+#nav-menu .movie{
+    background-position: -60px 0;
+
+}
+#nav-menu .music{
+    background-position: -120px 0;
+
+}
+#nav-menu .group{
+    background-position: -180px 0;
+
+}
+#nav-menu .city{
+    background-position: -240px 0;
+
+}
+#nav-menu .fm{
+    background-position: -300px 0;
+
+}
+#nav-menu .time{
+    background-position: -360px 0;
+
+}
+#nav-menu .store{
+    background-position: -420px 0;
+
+}
+/*nav 结束*/
+

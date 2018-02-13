@@ -1,0 +1,83 @@
+/*banner(横幅) begin*/
+#banner{
+    height: 178px;
+    background: #edf4ed;
+
+}
+#banner .wrap{
+    height:100%;
+    background:   url("../img/doubanapp5.png"),url("../img/doubanapp5_bg.png") ;
+    background-repeat:no-repeat;/*!!!!! 分开写*/
+    background-position: 50px -100px,0 0;/*两个图片定位*/
+    overflow: hidden;/*???*/
+
+}
+#banner .app{
+    width: 200px;
+    margin-left:480px ;
+    margin-top: 32px;
+   /* background: #cccccc;*/
+   /* text-align:center;*/
+}
+#banner .btn-download{
+    display:inline-block;/*????行元素设置宽高 不好使 这样才可以设置*/
+    width: 142px;
+    height: 30px;
+    background: green;
+    color:white;/*文字*/
+    text-align: center;/*框内文字*水平*居中*/
+    line-height: 30px;/*高*/
+   margin-bottom: 7px;/*?/?*/
+    border-radius:2px;/*边框圆角*/
+}
+#banner img{
+    width: 28px;
+    vertical-align: middle;/*???*/
+}
+#banner .app h1{
+    margin:7px 0;
+    /*margin-top:7px;
+    margin-left: auto;
+    magrin-right:auto;inside outside 了解*//*?????*/
+
+}
+#banner .app p{
+    letter-spacing: 2px;/*字体间隙*/
+    font-size: 12px ;
+    margin:15px auto;
+    margin-bottom: 5px ;
+}
+
+
+
+#banner .login-form{
+    position:absolute;
+    top: 32px;
+    right:0;/*????*/
+    width: 272px;
+}
+#banner .login-form p{
+    border: 1px solid #dbe5db;
+    height: 32px;
+    margin:5px auto;
+
+}
+#banner .login-form input{
+    border:0;
+}
+#banner .email,#banner .password{
+    border:0;
+    width:100%;
+    height: 32px;
+    text-indent:7px;
+}
+#banner .password{
+    width: 236px;
+}
+#banner .help{
+
+}
+#banner .login-form p:nth-child(2){                /*!!!!!!!!!!!!!!*/
+    background: #ffffff;
+}
+
