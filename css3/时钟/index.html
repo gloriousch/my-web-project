@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <div class="clock">
+            <div class="dial">
+                <i class="hour hour3">3</i>
+                <i class="hour hour6">6</i>
+                <i class="hour hour9">9</i>
+                <i class="hour hour12">12</i>
+                <div id="shizhen"></div>
+                <div id="fenzhen"></div>
+                <div id="miaozhen"></div>
+                <div id="center"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var miao=document.getElementById("miaozhen");
+        var fen=document.getElementById("fenzhen");
+        var shi=document.getElementById("shizhen");
+        var clock = setInterval(function () {
+            var newDate = new Date();
+            var hour = newDate.getHours();
+            var minute = newDate.getMinutes();
+            var second = newDate.getSeconds();
+
+            var circleHour = hour % 12 * 30;
+            shi.style.transform ="rotate("+circleHour+"deg)";
+            fen.style.transform ="rotate("+minute+"deg)";
+            miao.style.transform ="rotate("+second+"deg)";
+        },1000);
+    </script>
+</body>
+</html>

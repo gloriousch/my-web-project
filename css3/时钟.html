@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钟表</title>
+    <style type="text/css">
+        /*钟表圆圈的样式*/
+        .circle {
+            position: relative;
+            margin: 150px auto;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            border-radius: 100px;
+        }
+        /*时针*/
+        #hour {
+            position: absolute;
+            top: 97px;
+            left: 97px;
+            width: 4px;
+            height: 60px;
+            background-color: blue;
+            -webkit-transform-origin: 50% 0%;
+            -moz-transform-origin: 50% 0%;
+            -ms-transform-origin: 50% 0%;
+            -o-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+        }
+        /*分针*/
+        #min {
+            position: absolute;
+            top: 98px;
+            left: 98px;
+            width: 4px;
+            height: 80px;
+            background-color: forestgreen;
+            -webkit-transform-origin: 50% 0%;
+            -moz-transform-origin: 50% 0%;
+            -ms-transform-origin: 50% 0%;
+            -o-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+        }
+        /*秒针*/
+        #sec {
+            position: absolute;
+            top: 99px;
+            left: 99px;
+            width: 2px;
+            height: 90px;
+            background-color: chocolate;
+            -webkit-transform-origin: 50% 0%;
+            -moz-transform-origin: 50% 0%;
+            -ms-transform-origin: 50% 0%;
+            -o-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+        }
+        /*钟表中心圆点*/
+        #point {
+            position: absolute;
+            z-index: 1;
+            top: 96px;
+            left: 98px;
+            width: 5px;
+            height: 5px;
+            background-color: black;
+            border-radius: 10px;
+        }
+        /*钟表刻度*/
+        ul li {
+            list-style: none;
+            position: absolute;
+            top: 100px;
+            left: 99px;
+            width: 2px;
+            height: 97px;
+            border-bottom: 4px solid black;
+            -webkit-transform-origin: 50% 0%;
+            -moz-transform-origin: 50% 0%;
+            -ms-transform-origin: 50% 0%;
+            -o-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+        }
+        /*钟表小时刻度，就是长一点的那个刻度*/
+        ul li.lang {
+            height: 93px;
+            border-bottom: 8px solid black;
+        }
+    </style>
+</head>
+<body>
+<div class="circle">
+    <div id="point"></div>
+    <div id="hour"></div>
+    <div id="min"></div>
+    <div id="sec"></div>
+    <ul>
+
+    </ul>
+</div>
+
+</body>
+<script type="text/javascript">
+
+    //    分别获取时针，分针，秒针和刻度的父元素ul
+    var hour=document.getElementById("hour");
+    var min=document.getElementById("min");
+    var sec=document.getElementById("sec");
+    var oul=document.getElementsByTagName("ul")[0];
+
+    //      动态创建60个li表示钟表刻度并添加到父元素ul内
+    var olis="";
+    for (var i=0;i<60;i++){
+        olis+="<li></li>";
+    }
+    oul.innerHTML=olis;
+    //        获取创建好的每一个li
+    var oLis=document.getElementsByTagName("li");
+    for(var i=0;i<60;i++){
+//        每隔五个就有一个小时刻度，让它获取lang这个样式
+        if(i%5==0){
+            oLis[i].className="lang";
+        }
+//        整圆360度，每一个刻度是6度，让第i个li旋转6i度
+        oLis[i].style.transform="rotateZ("+i*6+"deg)";
+    }
+
+
+    var timer = null;
+
+    function run(){
+
+        //每次执行前关闭并清除之前的定时器，节约性能
+        clearTimeout(timer);
+        timer = null;
+
+        var nowDate=new Date;
+        //但是如果当前时间是12点半，时针不应该是直直的指向12点，应该是在12和1之间，
+        //所以就需要把当前多出的分钟数/60换算成小时数加起来，下面在计算角度的时候也就可以对应上了。
+        //分针同样如此
+        var s=nowDate.getSeconds();
+        sec.style.transform="rotateZ("+(s*6+180)+"deg)";
+        sec.style.webkitTransform="rotateZ("+(s*6+180)+"deg)";
+        sec.style.oTransform="rotateZ("+(s*6+180)+"deg)";
+        sec.style.msTransform="rotateZ("+(s*6+180)+"deg)";
+        sec.style.mozTransform="rotateZ("+(s*6+180)+"deg)";
+        //得到每一秒的旋转角度（每一秒是走6度）
+        var m=nowDate.getMinutes()+s/60;
+        min.style.transform="rotateZ("+(m*6+180)+"deg)";
+        min.style.oTransform="rotateZ("+(m*6+180)+"deg)";
+        min.style.webkitTransform="rotateZ("+(m*6+180)+"deg)";
+        min.style.msTransform="rotateZ("+(m*6+180)+"deg)";
+        min.style.mozTransform="rotateZ("+(m*6+180)+"deg)";
+        //得到每一分钟走的角度 每一小时之间是30 / 一小时中间有5个格 =30/5=6度
+        //每小时走360/12=30度
+        var h=nowDate.getHours()+m/60;
+        hour.style.transform="rotateZ("+(h*30+180)+"deg)";
+        hour.style.oTransform="rotateZ("+(h*30+180)+"deg)";
+        hour.style.msTransform="rotateZ("+(h*30+180)+"deg)";
+        hour.style.mozTransform="rotateZ("+(h*30+180)+"deg)";
+        hour.style.webkitTransform="rotateZ("+(h*30+180)+"deg)";
+        //开启定时器，每一秒自动走
+        var timer=window.setTimeout(run,1000);
+    }
+    //执行函数
+    run();
+</script>
+</html>
