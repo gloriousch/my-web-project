@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>竖直导航菜单</title>
+    <link href="css/Vmenu.css" rel="stylesheet" />
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .content{
+            margin: 40px 100px;
+            float: left;
+        }
+        ul ,li{
+            list-style: none;
+        }
+        .main,.hmain{
+            width: 150px;
+            background: #222;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            line-height: 40px;
+            color: white;
+        }
+        .main>a,.hmain>a{
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            width: 150px;
+            min-height: 40px;
+        }
+        .main:hover,.hmain:hover{
+            background: black;
+        }
+        .child{
+            background: #444;
+            display:none;
+        }
+        .child li:hover{
+            background: #333333;
+        }
+        /*垂直导航栏左浮动*/
+        .hmain{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<!--垂直导航栏-->
+<ul class="content">
+    <li class="main"><a href="#">菜单 1</a>
+        <ul class="child">
+            <li>菜单1.1</li>
+            <li>菜单1.2</li>
+            <li>菜单1.3</li>
+        </ul>
+    </li>
+    <li class="main"><a href="#">菜单 2</a>
+        <ul class="child">
+            <li>菜单2.1</li>
+            <li>菜单2.2</li>
+            <li>菜单2.3</li>
+            <li>菜单2.4</li>
+        </ul>
+    </li>
+    <li class="main"><a href="#">菜单 3</a>
+        <ul class="child">
+            <li>菜单3.1</li>
+            <li>菜单3.2</li>
+            <li>菜单3.3</li>
+        </ul>
+    </li>
+    <li class="main"><a href="#">菜单 4</a>
+        <ul class="child">
+            <li>菜单4.1</li>
+            <li>菜单4.3</li>
+        </ul>
+    </li>
+    <li class="main"><a href="#">菜单 5</a>
+        <ul class="child">
+            <li>菜单5.1</li>
+            <li>菜单5.2</li>
+        </ul>
+    </li>
+</ul>
+
+<!--水平导航栏-->
+<ul class="content">
+    <li class="hmain"><a href="#">菜单 1</a>
+        <ul class="child">
+            <li>菜单1.1</li>
+            <li>菜单1.2</li>
+            <li>菜单1.3</li>
+        </ul>
+    </li>
+    <li class="hmain"><a href="#">菜单 2</a>
+        <ul class="child">
+            <li>菜单2.1</li>
+            <li>菜单2.2</li>
+            <li>菜单2.3</li>
+            <li>菜单2.4</li>
+        </ul>
+    </li>
+    <li class="hmain"><a href="#">菜单 3</a>
+        <ul class="child">
+            <li>菜单3.1</li>
+            <li>菜单3.2</li>
+            <li>菜单3.3</li>
+        </ul>
+    </li>
+    <li class="hmain"><a href="#">菜单 4</a>
+        <ul class="child">
+            <li>菜单4.1</li>
+            <li>菜单4.3</li>
+        </ul>
+    </li>
+    <li class="hmain"><a href="#">菜单 5</a>
+        <ul class="child">
+            <li>菜单5.1</li>
+            <li>菜单5.2</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $(function(){
+        //垂直导航栏，点击下拉子菜单
+        $(".main>a").click(function(){
+            $(this).next().slideToggle(500)
+                .parent().siblings().find(".child").slideUp(500);
+        })
+        //水平导航栏，鼠标经过下拉导航栏
+        $(".hmain").hover(function(){
+            $(this).find(".child").slideToggle(500)
+                .parent().siblings().find(".child").slideUp();
+        })
+    })
+</script>
+</body>
+</html>
