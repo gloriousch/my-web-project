@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript">
+    function changeCity() {
+      //如果选择的是河南 在城市中: 洛阳 ，驻马店
+      //如果选择的是河北 在城市中: 石家庄 ，保定
+      var province = document.getElementById('selProvince');
+      var city = document.getElementById('selCity');
+      //在添加城市前，先清空上一次添加的城市
+      city.length = 1;
+      switch (province.value) {
+        case '河南省':
+          var op1 = new Option('洛阳', '洛阳');
+          var op2 = new Option('驻马店', '驻马店');
+          city.add(op1, null);
+          city.add(op2, null);
+          break;
+        case '河北省':
+          var op1 = new Option('石家庄', '石家庄');
+          var op2 = new Option('保定', '保定');
+          city.add(op1, null);
+          city.add(op2, null);
+          break;
+      }
+    }
+  </script>
+</head>
+<body>
+<form action="" name="myform">
+  <select id="selProvince" onchange="changeCity( )">
+    <option>--选择省份--</option>
+    <option value="河南省">河南省</option>
+    <option value="河北省">河北省</option>
+  </select>
+  <select id="selCity">
+    <option>--选择城市--</option>
+  </select>
+</form>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>aaaaaaaaaa</p>
+    <button class="a1" value="a1">A</button>
+    <button class="a1" value="b1">B</button>
+    <p>bbbbbbbbbb</p>
+    <button class="a2" value="a2">A</button>
+    <button class="a2" value="b2">B</button>
+    <p>ccccccccc</p>
+    <button class="a3" value="a3">A</button>
+    <button class="a3" value="b3">B</button>
+    <button id="res">结果</button>
+    <script src="./jquery-1.9.1.min.js"></script>
+    <script>
+        var result=[];
+        var str="";
+        $(".a1").click(function (e) {
+            if(e.target.value=="a1"){
+                result.splice(0, 1, "a");
+                console.log(result);
+            }else{
+                result.splice(0, 1, "b");
+                console.log(result);
+            }
+        })
+        $(".a2").click(function (e) {
+            if(e.target.value=="a2"){
+                result.splice(1, 1, "a");
+                console.log(result);
+            }else{
+                result.splice(1, 1, "b");
+                console.log(result);
+            }
+        })
+        $(".a3").click(function (e) {
+            if(e.target.value=="a3"){
+                result.splice(2, 1, "a");
+                console.log(result);
+            }else{
+                result.splice(2, 1, "b");
+                console.log(result);
+            }
+        })
+        $("#res").click(function(){
+            str = result.join('');
+            console.log(str);
+            maxCount(result);
+        })
+
+        function maxCount(str) {  
+            var obj={};
+            for(var i=0;i<str.length;i++){  
+                var key=str[i];  
+                if(obj[key]){
+                    obj[key]++;  
+                }else{  
+                    obj[key]=1;
+                }  
+            }  
+            var maxCount=0;
+            var maxString="";
+            for(var key in obj){  
+                if(maxCount<obj[key]){  
+                    maxCount=obj[key]; 
+                    maxString=key;  
+                }  
+            }  
+            alert("出现次数最多的字母:"+maxString+"出现了"+maxCount+"次");  
+        }  
+    </script>
+</body>
+</html>

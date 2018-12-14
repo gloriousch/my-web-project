@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script>
+window.onload=function()
+{
+    var aCat=document.getElementsByName('r_sel');
+     
+    for(var i=0;i<aCat.length;i++)
+    {
+        aCat[i].onchange=function()
+        {
+            alert(this.value);
+        }
+    }
+}
+</script>
+</head>
+<body>
+<input type="radio" value="1" name="r_sel" id="r_sel1"/><label for="r_sel1">分类1</label>
+<input type="radio" value="2" name="r_sel" id="r_sel2"/><label for="r_sel2">分类2</label>
+<input type="radio" value="3" name="r_sel" id="r_sel3"/><label for="r_sel3">分类3</label>
+</body>
+</html>

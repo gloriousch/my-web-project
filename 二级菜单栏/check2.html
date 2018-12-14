@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+    padding:0;
+    margin:0;   /*清除所有元素的padding和margin*/
+    }
+    li{
+    list-style:none;   /*清除所有li前面的黑点*/  
+    background: #000000;
+    color:white;
+    text-align:center;
+    line-height:30px;
+    border-radius: 19px;
+    }
+    ul.t1{
+    /* width:300px; */
+    font-size: 24px;
+    font-weight: 700;
+    height:30px;   /*给class="t1"的ul设置宽高*/
+    } 
+    .fl > li{       /*选择class="fl"元素的子元素中的li,即一级菜单栏左浮动*/
+    float:left;   
+    }
+    .t1 > li{
+    width:150px; 
+    margin-left:2%;
+    }
+    .t2 li{
+    display:none;  /*二级菜单栏隐藏*/
+    font-size: 24px;
+    font-weight: 200;
+    }
+    .t1 > li:hover{
+    background:#ff0000;/*:hover伪类，当时鼠标移动上去显示*/
+    }
+    .t1 >li:hover .t2 li{
+        display:block;   /*当鼠标移动到.t1的子元素li上，.t2的子孙元素li显示*/
+    }
+    .t2 li:hover{
+    font-weight: 600;
+    }
+    </style>
+</head>
+<body>
+    <ul class="t1 fl">
+        <li>首页</li>
+        <li>企业介绍
+            <ul class="t2">
+               <li>公司简介</li>
+               <li>集团介绍</li>
+               <li>产品体系</li>
+            </ul>
+        </li>
+        <li>人才发展
+             <ul class="t2">
+                <li>雇主品牌模型</li>
+                <li>人才培养</li>
+                <li>企业价值</li>
+                <li>培训与晋升</li>
+                <li>职场&生活</li>
+            </ul>
+        </li>
+        <li>校园招聘
+            <ul class="t2">
+                <li>校招行程</li>
+                <li>校招岗位</li>
+            </ul>
+        </li>
+      <ul>
+</body>
+</html>

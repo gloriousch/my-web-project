@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+    
+        .all {
+            width: 200px;
+            position: fixed;
+            bottom: 20px;
+            left: 40%;
+        }
+    
+        .all p {
+            width: 200px;
+            height: 40px;
+            border: 1px solid #333;
+        }
+    
+        .all p a {
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            display: block;
+        }
+    
+        .tedg {
+            width: 200px;
+            border: 1px solid #333;
+            height: 200px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="tedg" style="height: 300px;">
+        </div>
+        <p><a href="javascript:;" id="onvk">查看职位详情</a></p>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('#onvk').click(function () {
+                if ($(this).text() == '查看职位详情') {
+                    $(this).text('收起职位详情')
+                } else {
+                    $(this).text('查看职位详情')
+                }
+                $(this).parents('p').siblings('.tedg').stop().slideToggle(); 
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            width: 350px;
+        }
+
+        .box {
+            height: 100px;
+            width: 100px;
+            background: #bbbbff;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 5%;
+        }
+
+        .box.a1,
+        .box.a2,
+        .box.a3 {
+            float: left;
+            /* background: #000; */
+        }
+
+        .box.a4,
+        .box.a5,
+        .box.a6 {
+            float: left;
+            /* margin-top: 100px; */
+            /* background: #000; */
+        }
+
+        .box.a7,
+        .box.a8,
+        .box.a9 {
+            float: left;
+            /* margin-top: 210px; */
+            /* background: #000; */
+        }
+
+        /* .box.a1.a2.a3{
+        float: left;
+        background: #000;
+    } */
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="box a1"></div>
+        <div class="box a2"></div>
+        <div class="box a3"></div>
+        <div class="box a4"></div>
+        <div class="box a5"></div>
+        <div class="box a6"></div>
+        <div class="box a7"></div>
+        <div class="box a8"></div>
+        <div class="box a9"></div>
+    </div>
+    <input type="button" value="开始" id="btn1">
+    <input type="button" value="结束" id="btn2">
+</body>
+</html>

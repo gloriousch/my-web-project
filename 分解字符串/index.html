@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+ <script>
+   let string = '培养方向：<br/>是否是否是否是否<br/><br/>工作职责：<br/>是否是否是否是否<br/><br/>任职要求：<br/>是否是否是否是否<br/><br/>'
+   let first = string.indexOf('培养方向');
+   let second = string.indexOf('工作职责');
+   let third = string.indexOf('任职要求');
+   console.log(first);
+   console.log(second);
+   document.write(string.substring(first+10,second))
+   document.write(string.substring(second+10,third))
+   document.write(string.substring(third+10))
+
+ </script> 
+</body>
+</html>

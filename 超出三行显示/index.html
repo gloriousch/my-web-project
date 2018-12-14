@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .min-height {
+        /* height: 5rem; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+      .content {
+        line-height: 1.2rem;
+        font-size: .4rem;
+        width: 15rem;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="content">
+      段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容段落内容
+    </p>
+    <div class="seeMore"><span>查看更多</span></div>
+    <!-- <div class="noSeeMore"><span>隐藏</span></div> -->
+  </body>
+  <script src="./jquery-1.9.1.min.js"></script>
+  <script>
+    var height = $(".content").height();
+    var lineHeight = parseInt($(".content").css('line-height'));
+
+    console.log(lineHeight);
+    var line = height / lineHeight;
+    console.log(height);
+    console.log(line);
+    if (height > 95) {
+      //每行高度20
+      $(".seeMore").show();
+      $(".content").addClass("min-height");
+    } else {
+      $(".seeMore").hide();
+      $(".content").addClass("content");
+      console.log(222);
+    }
+    $(".seeMore").click(function() {
+      $(".content").removeClass("min-height");
+      $(".seeMore").hide();
+    });
+  </script>
+</html>

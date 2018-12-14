@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    function chagecity() {
+      var citylist = [];
+      citylist['四川省'] = ['成都市', '郫都区'];
+      citylist['广东省'] = ['深圳市', '东莞市'];
+      var provinceV = document.getElementById("province").value;
+      var city = document.getElementById("city");
+      city.length = 1; //清除当前city中的选项
+//        for (var i in citylist){
+//          if (i == provinceV){
+//            for (var j in citylist[i]){
+//              citylist.add(new Option(citylist[i][j],citylist[i][j]),null);
+//            }
+//          }
+//        }
+      for (var i in citylist) {
+        if (i == provinceV) {//判断i是不是等于province中的值
+          for (var j in citylist[i]) {//遍历citylist数组
+            var op = new Option(citylist[i][j], citylist[i][j]);//把定义好的数据添加到city中
+            city.add(op, null);
+          }
+        }
+      }
+ 
+    }
+  </script>
+</head>
+<body>
+<form action="">
+  <select name="" id="province" onchange="chagecity()">
+    <option value="四川省">四川</option>
+    <option value="广东省">广东</option>
+  </select>
+  <select id="city">
+    <option value="选择城市">选择城市</option>
+  </select>
+</form>
+</body>
+</html>

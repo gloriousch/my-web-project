@@ -1,0 +1,102 @@
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+*{
+    margin:0;padding: 0;
+    list-style: none;
+    text-decoration: none;
+    }
+#nav{
+    /* width: 500px; */
+    height: 40px;
+    background: #ccc;
+    margin: 0 auto;
+    }
+ul{
+    background: #aaa
+    }
+ul li{
+    float:left; 
+    display:block; 
+    height: 40px; 
+    line-height: 40px; 
+    position: relative;
+    }
+.one-nav .one-li{
+    padding: 0 40px;
+    float:left; 
+    display:block; 
+    height: 40px; 
+    line-height: 40px; 
+    position: relative; 
+}
+.one-nav .one-a:hover{
+    background: #ff0000;
+    border-radius: 19px;
+    }
+/* ul li ul li{
+    float: none;
+    } */
+/*关键一：将二级菜单设置为display：none;*/
+ul li ul{
+    position: absolute;
+    top:40px;
+    left: 0; 
+    /* display: none; */
+    background-color:#ff0000; 
+    border-radius:0 0 19px 19px; 
+    }
+ul li ul{
+    position: absolute;
+    top:40px;
+    left: 0; 
+    display: none;
+    text-align: center;
+    padding:0 20px;
+    background-color:#ff0000; 
+    border-radius:0 0 19px 19px; 
+}
+ul li ul li:hover{
+    font-weight:600;
+}
+/*关键二：在划过二级菜单从属的一级菜单时，设置为display:block;*/
+ul li:hover ul{
+    display: block;
+}
+.one-nav{
+    font-size: 24px;
+}
+.two-nav{
+    font-size: 20px;
+    font-weight: 200;
+}
+</style>
+ 
+ 
+<div id="nav">
+    <ul class="one-nav">
+        <li class="one-li"><a class="one-a" href="">首页</a></li>
+        <li class="one-li"><a class="one-a" href="">企业介绍</a>
+            <ul class="two-nav">
+                <li><a href="#">公司简介</a> </li>
+                <li><a href="#">集团介绍</a> </li>
+                <li><a href="#">产品体系</a> </li>
+            </ul>
+        </li>
+        <li class="one-li"><a class="one-a" href="">人才发展</a>
+            <ul class="two-nav">
+                <li><a href="#">雇主品牌模型</a> </li>
+                <li><a href="#">人才培养</a> </li>
+                <li><a href="#">企业价值</a> </li>
+                <li><a href="#">培训与晋升</a> </li>
+                <li><a href="#">职场&生活</a> </li>
+            </ul>
+        </li>
+        <li class="one-li"><a class="one-a" href="">校园招聘</a>
+            <ul class="two-nav">
+                <li><a href="#">校招行程</a> </li>
+                <li><a href="#">校招岗位</a> </li>
+            </ul>
+        </li>
+    </ul>
+</div> 
